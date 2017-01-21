@@ -357,6 +357,50 @@ The capacitor is for reducing noise from long thermistor cable. If you don't hav
 
 If you need the generic table, uncomment the following define.
 */
+#define USE_GENERIC_THERMISTORTABLE_1
+
+/* Some examples for different thermistors:
+
+EPCOS B57560G104+ : R0 = 100000  T0 = 25  Beta = 4036
+EPCOS 100K Thermistor (B57560G1104F) :  R0 = 100000  T0 = 25  Beta = 4092
+ATC Semitec 104GT-2 : R0 = 100000  T0 = 25  Beta = 4267
+Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
+
+*/
+
+/** Reference Temperature */
+#define GENERIC_THERM1_T0 25        /** Resistance at reference temperature */
+#define GENERIC_THERM1_R0 100000    /** Beta value of thermistor
+
+You can use the beta from the datasheet or compute it yourself.
+See http://reprap.org/wiki/MeasuringThermistorBeta for more details.
+*/
+#define GENERIC_THERM1_BETA 4450    /** Start temperature for generated thermistor table */
+#define GENERIC_THERM1_MIN_TEMP -20 /** End Temperature for generated thermistor table */
+#define GENERIC_THERM1_MAX_TEMP 300
+#define GENERIC_THERM1_R1 0
+#define GENERIC_THERM1_R2 4700
+
+// The same for table 2 and 3 if needed
+
+#define USE_GENERIC_THERMISTORTABLE_2
+#define GENERIC_THERM2_T0 25
+#define GENERIC_THERM2_R0 100000
+#define GENERIC_THERM2_BETA 4367
+#define GENERIC_THERM2_MIN_TEMP -20
+#define GENERIC_THERM2_MAX_TEMP 300
+#define GENERIC_THERM2_R1 0
+#define GENERIC_THERM2_R2 4700
+
+//#define USE_GENERIC_THERMISTORTABLE_3
+#define GENERIC_THERM3_T0 170
+#define GENERIC_THERM3_R0 1042.7
+#define GENERIC_THERM3_BETA 4036
+#define GENERIC_THERM3_MIN_TEMP -20
+#define GENERIC_THERM3_MAX_TEMP 300
+#define GENERIC_THERM3_R1 0
+#define GENERIC_THERM3_R2 4700
+
 #define GENERIC_THERM_VREF 5
 #define GENERIC_THERM_NUM_ENTRIES 33
 
@@ -525,7 +569,7 @@ on this endstop.
 
 // Inverting axis direction
 #define INVERT_X_DIR true
-#define INVERT_Y_DIR false
+#define INVERT_Y_DIR true
 #define INVERT_Z_DIR true
 
 // Sets direction of endstops when homing; 1=MAX, -1=MIN
@@ -835,7 +879,7 @@ to activate the quadratic term. Only adds lots of computations and storage usage
 // ##                           Communication configuration                                ##
 // ##########################################################################################
 
-#define BAUDRATE 115200             //Overridden if EEPROM activated
+#define BAUDRATE 250000             //Overridden if EEPROM activated
 /**
 Some boards like Gen7 have a power on pin, to enable the atx power supply. If this is defined,
 the power will be turned on without the need to call M80 if initially started.
