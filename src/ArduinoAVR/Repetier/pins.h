@@ -2275,18 +2275,14 @@ S3(ext)=9
 #define Z_MS1_PIN      68
 #define Z_MS2_PIN      67
 
-#define HEATER_0_PIN   9
-#define TEMP_0_PIN     0
+#define HEATER_0_PIN   9	//HEAT 0
+#define TEMP_0_PIN     0	//HEAT 0 Sensor
 
-#define HEATER_1_PIN   3
-// This is T2 on the board!
-#define TEMP_1_PIN     2
+#define HEATER_1_PIN   3	//HEAT 2 - BED
+#define TEMP_1_PIN     2	//HEAT 2 - BED Sensor
 
-#define HEATER_2_PIN   7
-// This is T1 on the board!
-#define TEMP_2_PIN     1
-// T3 on board
-#define TEMP_3_PIN     7
+#define HEATER_2_PIN   7	//HEAT 1
+#define TEMP_2_PIN     1	//HEAT 1 Sensor
 
 #define ORIG_E0_STEP_PIN    34
 #define ORIG_E0_DIR_PIN     43
@@ -2308,7 +2304,6 @@ S3(ext)=9
 #define LED_PIN        13
 #define ORIG_FAN_PIN        8
 #define ORIG_FAN2_PIN    6
-#define ORIG_FAN3_PIN    2
 #define ORIG_PS_ON_PIN      4
 #define SUICIDE_PIN    -1  //PIN that has to be turned on right after start, to keep power flowing.
 
@@ -2763,29 +2758,29 @@ S3(ext)=9
  ****************************************************************************************/
  #if MOTHERBOARD == 89
  #define KNOWN_BOARD 1
- 
+
  #define ORIG_X_STEP_PIN         28
  #define ORIG_X_DIR_PIN          29
  #define ORIG_X_ENABLE_PIN       19
  #define ORIG_X_MIN_PIN          25
  #define ORIG_X_MAX_PIN          -1
- 
+
  #define ORIG_Y_STEP_PIN         30
  #define ORIG_Y_DIR_PIN          31
  #define ORIG_Y_ENABLE_PIN       18
  #define ORIG_Y_MIN_PIN          26
  #define ORIG_Y_MAX_PIN          -1
- 
+
  #define ORIG_Z_STEP_PIN         32
  #define ORIG_Z_DIR_PIN          33
  #define ORIG_Z_ENABLE_PIN       17
  #define ORIG_Z_MIN_PIN          -1
  #define ORIG_Z_MAX_PIN          27
- 
+
  #define ORIG_E0_STEP_PIN         34
  #define ORIG_E0_DIR_PIN          35
  #define ORIG_E0_ENABLE_PIN       13
- 
+
  // Extruder - ANALOG PIN NUMBER!
  #define TEMP_0_PIN          7
  // Bed - ANALOG PIN NUMBER!
@@ -2796,24 +2791,24 @@ S3(ext)=9
  #define HEATER_1_PIN       14
  #define HEATER_2_PIN   -1
  #define TEMP_2_PIN     -1
- 
+
  #define SDPOWER            -1
  #define SDSS                20
  #define LED_PIN            -1
  // Fan
  #define ORIG_FAN_PIN            16
  #define ORIG_PS_ON_PIN          -1
- 
+
  #define E0_PINS ORIG_E0_STEP_PIN,ORIG_E0_DIR_PIN,ORIG_E0_ENABLE_PIN,
  #define E1_PINS
- 
+
  #if !SDSUPPORT
  // these pins are defined in the SD library if building with SD support
  #define SCK_PIN          21
  #define MISO_PIN         23
  #define MOSI_PIN         22
  #endif
- 
+
  #endif
 
 /****************************************************************************************
@@ -3058,8 +3053,8 @@ S3(ext)=9
 #define SDCARDDETECT ORIG_SDCARDDETECT
 
 #define SENSITIVE_PINS {0, 1, ORIG_X_STEP_PIN, ORIG_X_DIR_PIN, ORIG_X_ENABLE_PIN, ORIG_X_MIN_PIN, ORIG_X_MAX_PIN, \
-        ORIG_Y_STEP_PIN, ORIG_Y_DIR_PIN, ORIG_Y_ENABLE_PIN, ORIG_Y_MIN_PIN, ORIG_Y_MAX_PIN, ORIG_Z_STEP_PIN,\
-        ORIG_Z_DIR_PIN, ORIG_Z_ENABLE_PIN, ORIG_Z_MIN_PIN, ORIG_Z_MAX_PIN, LED_PIN, ORIG_PS_ON_PIN, \
+ORIG_Y_STEP_PIN, ORIG_Y_DIR_PIN, ORIG_Y_ENABLE_PIN, ORIG_Y_MIN_PIN, ORIG_Y_MAX_PIN, ORIG_Z_STEP_PIN,\
+ORIG_Z_DIR_PIN, ORIG_Z_ENABLE_PIN, ORIG_Z_MIN_PIN, ORIG_Z_MAX_PIN, LED_PIN, ORIG_PS_ON_PIN, \
         HEATER_0_PIN, HEATER_1_PIN, /*ORIG_FAN_PIN,*/ E0_PINS E1_PINS E2_PINS TEMP_0_PIN, TEMP_1_PIN,SDSS }
 #endif
 

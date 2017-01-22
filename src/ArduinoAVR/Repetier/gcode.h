@@ -30,21 +30,21 @@ class GCode   // 52 uint8_ts per command needed
     uint16_t params2;
 public:
     uint16_t N; // Line number
-    uint16_t M;
-    uint16_t G;
-    float X;
-    float Y;
-    float Z;
-    float E;
-    float F;
-    int32_t S;
-    int32_t P;
-    float I;
-    float J;
-    float R;
-    float D;
+    uint16_t M; // RepRap-defined command
+    uint16_t G; // Standard GCode command
+    float X;    // X coordinate (integer or fraction)
+    float Y;    // Y coordinate (integer or fraction)
+    float Z;    // Z coordinate (integer or fraction)
+    float E;    // Length of extrudate (filament to extrude)  (integer or fraction)
+    float F;    // Feedrate in mm/s
+    int32_t S;  // Command parameter
+    int32_t P;  // Command parameter
+    float I;    // Parameter - X-offset in arc move; integral (Ki) in PID Tuning
+    float J;    // arameter - Y-offset in arc move
+    float R;    // Parameter - used for temperatures
+    float D;    // Parameter - used for diameter; derivative (Kd) in PID Tuning
     float C;
-    float H;
+    float H;    // Parameter - used for heater number in PID Tuning
     float A;
     float B;
     float K;
