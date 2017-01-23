@@ -1469,6 +1469,9 @@ void Commands::processGCode(GCode *com) {
             commandG204(*com);
             break;
 #endif // defined
+case 999: //debugging
+    if(com->hasS()) Printer::setNoDestinationCheck(com->S != 0);
+break;
         default:
             if(!EVENT_UNHANDLED_G_CODE(com) && Printer::debugErrors()) {
                 Com::printF(Com::tUnknownCommand);
@@ -1829,6 +1832,14 @@ void Commands::processMCode(GCode *com) {
 #else
             Com::cap(PSTR("TOGGLE_LIGHTS:0"));
 #endif
+//Siam debugging section
+        if (Printer::isNoDestinationCheck())
+            Com::cap(PSTR("PRINTER_FLAG1_NO_DESTINATION_CHECK:1"));
+        else
+            Com::cap(PSTR("PRINTER_FLAG1_NO_DESTINATION_CHECK:0"));
+
+
+//End debugging section            
             reportPrinterUsage();
             Printer::reportPrinterMode();
             break;
